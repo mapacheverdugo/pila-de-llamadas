@@ -36,7 +36,7 @@ namespace PilaDeLlamadas {
 
 			if (e.KeyCode == Keys.Enter) {
 				newButton.Text = "" + (c + 1);
-				newButton.Top = 60 * c;
+				newButton.Top = (60 * c) + panel1.AutoScrollPosition.Y;
 
 				buttons.Add(newButton);
 				panel1.Controls.Add(newButton);
