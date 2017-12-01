@@ -22,10 +22,9 @@ namespace PilaDeLlamadas {
 			panel1.Invalidate();
 		}
 
-		int c = 0;
+		List<Button> buttons = new List<Button>();
 
 		private void Form1_KeyUp(object sender, KeyEventArgs e) {
-			List<Button> buttons = new List<Button>();
 			Button newButton = new Button();
 			newButton.Left = 0;
 			newButton.Width = 100;
@@ -35,16 +34,16 @@ namespace PilaDeLlamadas {
 			newButton.FlatAppearance.BorderSize = 0;
 
 			if (e.KeyCode == Keys.Enter) {
-				newButton.Text = "" + (c + 1);
-				newButton.Top = (60 * c) + panel1.AutoScrollPosition.Y;
+				newButton.Text = "" + (buttons.Count() + 1);
+				newButton.Top = (60 * buttons.Count()) + panel1.AutoScrollPosition.Y;
 
 				buttons.Add(newButton);
 				panel1.Controls.Add(newButton);
-				c++;
-			} else if (e.KeyCode == Keys.Back) {
-				// Eliminar botón
+			} else if (e.KeyCode == Keys.Space & buttons.Any()) {
+				panel1.Controls.RemoveAt(buttons.Count() - 1);
+				buttons.RemoveAt(buttons.Count() - 1);
 			}
 
-		}
+			}
 	}
 }
