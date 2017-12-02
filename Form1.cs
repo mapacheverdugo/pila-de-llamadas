@@ -15,19 +15,46 @@ namespace PilaDeLlamadas {
 		}
 
 		private void Form1_Load(object sender, EventArgs e) {
-			KeyUp += new System.Windows.Forms.KeyEventHandler(KeyEvent);
+			KeyEventArgs KeyEvent;
+			KeyUp += new KeyEventHandler(sender, KeyEvent);
+			Funciones.CambioDeBase(354, 6, 1, 1, 1, panel1);
 		}
 
-		private void KeyEvent(object sender, KeyEventArgs e) //Keyup Event 
-	{
-			if (e.KeyCode == Keys.F9) {
-				MessageBox.Show("Function F9");
-			}
-			if (e.KeyCode == Keys.F6) {
-				MessageBox.Show("Function F6");
-			} else
-				MessageBox.Show("No Function");
+		static List<Button> buttons = new List<Button>();
 
+		/*public int getY() {
+			int Y = panel1.AutoScrollPosition.Y;
+			return Y;
+		}*/
+		
+		public static void continuar() {
+			KeyEventArgs e;
+			do {
+
+			}while(e.KeyCode == Keys.Enter);
+		}
+
+		public static void Imprimir(int total, int max, int actual, string frase, Panel p){
+			Button newButton = new Button();
+			newButton.Left = 0;
+			newButton.Width = 100;
+			newButton.Height = 50;
+			newButton.BackColor = Color.Aquamarine;
+			newButton.FlatStyle = FlatStyle.Flat;
+			newButton.FlatAppearance.BorderSize = 0;
+
+			if(buttons.Count() < actual) {
+				newButton.Text = frase;
+				newButton.Top = (60 * buttons.Count()) + p.AutoScrollPosition.Y;
+
+				buttons.Add(newButton);
+				p.Controls.Add(newButton);
+			} else if (buttons.Count > actual) {
+				p.Controls.RemoveAt(buttons.Count() - 1);
+				buttons.RemoveAt(buttons.Count() - 1);
+			}
+
+			continuar();
 		}
 	}
 }

@@ -6,45 +6,17 @@ using System.Threading.Tasks;
 
 namespace PilaDeLlamadas {
 	public partial class Funciones {
-		static void Imprimir(ref int max, int total, int actual) {
-			ConsoleKeyInfo keyInfo;
-			Console.Clear();
 
-			if (max < actual) {
-				max = actual;
-			}
-
-			Console.WriteLine("Número de registros máximos: " + max);
-			Console.WriteLine("Número de registros totales: " + total);
-			Console.WriteLine("Número de registros actuales: " + actual);
-
-			do {
-				Console.WriteLine("Presione Enter para Continuar");
-				keyInfo = Console.ReadKey();
-			} while (keyInfo.Key != ConsoleKey.Enter);
-		}
-
-		static void Continuar() {
-			ConsoleKeyInfo keyInfo;
-
-			do {
-				Console.WriteLine("Presione Enter para Continuar");
-				keyInfo = Console.ReadKey();
-			} while (keyInfo.Key != ConsoleKey.Enter);
-		}
-
-		public static int CambioDeBase(int n, int b, ref int Max, ref int Total, int Actual) {
-			Total++;
-			//Imprimir(ref Max, Total, Actual);
+		public static int CambioDeBase(int n, int b, int Max, int Total, int Actual, System.Windows.Forms.Panel p) {
+			Form1.Imprimir(Total, Max, Actual, "CambioDeBase(" + n + ", " + b + ")", p);
 			if (n / 10 == 0) {
 				return n;
 			} else {
-				int aux = CambioDeBase(n / 10, b, ref Max, ref Total, Actual + 1);
-				//Imprimir(ref Max, Total, Actual);
+				int aux = CambioDeBase(n / 10, b, Max, Total + 1, Actual + 1, p);
 				return aux * b + n - n / 10 * 10;
 			}
 		}
-
+		/*
 		static int PiramideDeEsferas(int n, ref int Max, ref int Total, int Actual) {
 			Total++;
 			Imprimir(ref Max, Total, Actual);
@@ -104,6 +76,6 @@ namespace PilaDeLlamadas {
 					return (((n + 1) / n) * aux2);
 				}
 			}
-		}
+		}*/
 	}
 }
