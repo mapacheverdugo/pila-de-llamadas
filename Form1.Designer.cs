@@ -36,19 +36,21 @@
 			this.panel1.AutoScroll = true;
 			this.panel1.Location = new System.Drawing.Point(12, 12);
 			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(317, 237);
+			this.panel1.Size = new System.Drawing.Size(170, 585);
 			this.panel1.TabIndex = 0;
 			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(341, 261);
+			this.ClientSize = new System.Drawing.Size(1008, 609);
 			this.Controls.Add(this.panel1);
+			this.KeyPreview = true;
+			this.MaximizeBox = false;
 			this.Name = "Form1";
-			this.Text = "Form1";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+			this.Text = "Pila de llamadas | Lenguajes de programación";
 			this.Load += new System.EventHandler(this.Form1_Load);
-			this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);
 			this.ResumeLayout(false);
 
         }
