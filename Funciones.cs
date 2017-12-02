@@ -5,8 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace PilaDeLlamadas {
-	class Funciones {
-
+	public partial class Funciones {
 		static void Imprimir(ref int max, int total, int actual) {
 			ConsoleKeyInfo keyInfo;
 			Console.Clear();
@@ -34,14 +33,14 @@ namespace PilaDeLlamadas {
 			} while (keyInfo.Key != ConsoleKey.Enter);
 		}
 
-		static int CambioDeBase(int n, int b, ref int Max, ref int Total, int Actual) {
+		public static int CambioDeBase(int n, int b, ref int Max, ref int Total, int Actual) {
 			Total++;
-			Imprimir(ref Max, Total, Actual);
+			//Imprimir(ref Max, Total, Actual);
 			if (n / 10 == 0) {
 				return n;
 			} else {
 				int aux = CambioDeBase(n / 10, b, ref Max, ref Total, Actual + 1);
-				Imprimir(ref Max, Total, Actual);
+				//Imprimir(ref Max, Total, Actual);
 				return aux * b + n - n / 10 * 10;
 			}
 		}

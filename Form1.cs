@@ -18,10 +18,6 @@ namespace PilaDeLlamadas {
 	
 		}
 
-		private void panel1_Scroll(object sender, ScrollEventArgs e) {
-			panel1.Invalidate();
-		}
-
 		List<Button> buttons = new List<Button>();
 
 		private void Form1_KeyUp(object sender, KeyEventArgs e) {
@@ -33,8 +29,12 @@ namespace PilaDeLlamadas {
 			newButton.FlatStyle = FlatStyle.Flat;
 			newButton.FlatAppearance.BorderSize = 0;
 
+			int max = 0;
+			int total = 0;
+			int resul = Funciones.CambioDeBase(354, 6, ref max, ref total, 1);
+
 			if (e.KeyCode == Keys.Enter) {
-				newButton.Text = "" + (buttons.Count() + 1);
+				newButton.Text = "" + resul;
 				newButton.Top = (60 * buttons.Count()) + panel1.AutoScrollPosition.Y;
 
 				buttons.Add(newButton);
@@ -44,6 +44,6 @@ namespace PilaDeLlamadas {
 				buttons.RemoveAt(buttons.Count() - 1);
 			}
 
-			}
+		}
 	}
 }
