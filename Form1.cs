@@ -15,12 +15,26 @@ namespace PilaDeLlamadas {
 		}
 
 		private void Form1_Load(object sender, EventArgs e) {
-	
+			KeyEventArgs KeyEvent;
+			KeyUp += new KeyEventHandler(sender, KeyEvent);
+			Funciones.CambioDeBase(354, 6, 1, 1, 1, panel1);
 		}
 
-		List<Button> buttons = new List<Button>();
+		static List<Button> buttons = new List<Button>();
 
-		private void Form1_KeyUp(object sender, KeyEventArgs e) {
+		/*public int getY() {
+			int Y = panel1.AutoScrollPosition.Y;
+			return Y;
+		}*/
+		
+		public static void continuar() {
+			KeyEventArgs e;
+			do {
+
+			}while(e.KeyCode == Keys.Enter);
+		}
+
+		public static void Imprimir(int total, int max, int actual, string frase, Panel p){
 			Button newButton = new Button();
 			newButton.Left = 0;
 			newButton.Width = 100;
@@ -29,21 +43,18 @@ namespace PilaDeLlamadas {
 			newButton.FlatStyle = FlatStyle.Flat;
 			newButton.FlatAppearance.BorderSize = 0;
 
-			int max = 0;
-			int total = 0;
-			int resul = Funciones.CambioDeBase(354, 6, ref max, ref total, 1);
-
-			if (e.KeyCode == Keys.Enter) {
-				newButton.Text = "" + resul;
-				newButton.Top = (60 * buttons.Count()) + panel1.AutoScrollPosition.Y;
+			if(buttons.Count() < actual) {
+				newButton.Text = frase;
+				newButton.Top = (60 * buttons.Count()) + p.AutoScrollPosition.Y;
 
 				buttons.Add(newButton);
-				panel1.Controls.Add(newButton);
-			} else if (e.KeyCode == Keys.Space & buttons.Any()) {
-				panel1.Controls.RemoveAt(buttons.Count() - 1);
+				p.Controls.Add(newButton);
+			} else if (buttons.Count > actual) {
+				p.Controls.RemoveAt(buttons.Count() - 1);
 				buttons.RemoveAt(buttons.Count() - 1);
 			}
 
+			continuar();
 		}
 	}
 }
