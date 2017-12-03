@@ -14,6 +14,7 @@ namespace PilaDeLlamadas {
 		public static ManualResetEvent semaforo;
 		public static List<Button> buttons = new List<Button>();
 
+
 		public Form1() {
 			semaforo = new ManualResetEvent(false);
 			InitializeComponent();
@@ -41,6 +42,7 @@ namespace PilaDeLlamadas {
 		}
 
 		public static void Imprimir(int total, int max, int actual, string frase) {
+			
 			semaforo.Reset();
 			Button newButton = new Button();
 			newButton.Left = 10;

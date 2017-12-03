@@ -39,6 +39,7 @@
 			// panel1
 			// 
 			this.panel1.AutoScroll = true;
+			this.panel1.AutoScrollMinSize = new System.Drawing.Size(0, 500);
 			this.panel1.Location = new System.Drawing.Point(29, 80);
 			this.panel1.Margin = new System.Windows.Forms.Padding(20, 20, 10, 20);
 			this.panel1.Name = "panel1";
@@ -67,24 +68,24 @@
 			// label1
 			// 
 			this.label1.AutoSize = true;
-			this.label1.Font = new System.Drawing.Font("Montserrat", 14F, System.Drawing.FontStyle.Bold);
+			this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
 			this.label1.ForeColor = System.Drawing.Color.White;
 			this.label1.Location = new System.Drawing.Point(23, 29);
 			this.label1.Margin = new System.Windows.Forms.Padding(3, 20, 3, 0);
 			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(307, 31);
+			this.label1.Size = new System.Drawing.Size(312, 24);
 			this.label1.TabIndex = 8;
 			this.label1.Text = "REPRESENTACIÓN DE LA PILA";
 			// 
 			// label2
 			// 
 			this.label2.AutoSize = true;
-			this.label2.Font = new System.Drawing.Font("Montserrat", 14F, System.Drawing.FontStyle.Bold);
+			this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
 			this.label2.ForeColor = System.Drawing.Color.White;
 			this.label2.Location = new System.Drawing.Point(353, 289);
 			this.label2.Margin = new System.Windows.Forms.Padding(3, 20, 3, 0);
 			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(110, 31);
+			this.label2.Size = new System.Drawing.Size(109, 24);
 			this.label2.TabIndex = 9;
 			this.label2.Text = "CONSOLA";
 			// 
