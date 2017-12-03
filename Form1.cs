@@ -9,11 +9,29 @@ using System.Threading;
 using System.Windows.Forms;
 
 namespace PilaDeLlamadas {
+	public class Registros{
+
+		int Maximo;
+		int Actual;
+		int Total;
+		int bytes;
+		string Frase;
+
+		public Registros(int m, int a, int t, int b, string f){
+			Maximo = m;
+			Actual = a;
+			Total = t;
+			bytes = b;
+			Frase = f;
+		}
+	}
+
 	public partial class Form1 : Form {
 		public static Thread hilo;
 		public static ManualResetEvent semaforo;
 		public static List<Button> botones = new List<Button>();
-
+		public static List<Registros> stack = new List<Registros>();
+		
 		public static string consola = "";
 
 		public Form1() {
@@ -23,9 +41,12 @@ namespace PilaDeLlamadas {
 
 		private void Form1_Load(object sender, EventArgs e) {
 			consola = "Presiona [Enter] para empezar la ejecución...";
+			int ref1 = 0;
+			int ref2 = 1;
+
 			panel2.Refresh();
 			ThreadStart starter = () => {
-				int retorno = Funciones.NodosBiarbol(4, 4, 0, 1, 0);
+				int retorno = Funciones.NodosBiarbol(4, 4, ref ref1, ref ref2, 0);
 				consola = "La función terminó retornando " + retorno;
 				botones.Clear();
 
@@ -43,7 +64,11 @@ namespace PilaDeLlamadas {
 		}
 
 
-		public static void Imprimir(int total, int max, int actual, string frase) {
+		public static void Imprimir(ref int total, ref int max, int actual, string frase) {
+			if(actual > max){
+				max = actual;
+			}
+
 			Button boton = new Button();
 			boton.Left = 10;
 			boton.Width = 276;
@@ -54,6 +79,8 @@ namespace PilaDeLlamadas {
 			boton.FlatStyle = FlatStyle.Flat;
 			boton.FlatAppearance.BorderSize = 0;
 			boton.Text = frase;
+			
+			Registros nuevo = new Registros(max, actual, total, 0, frase);
 
 			consola = "Se está ejecutando la función, presione [Enter]";
 
@@ -62,6 +89,7 @@ namespace PilaDeLlamadas {
 			Program.form1.Invoke((Action) delegate{
 				if (botones.Count - 1 < actual) {
 					boton.Text = frase;
+					stack.Add(nuevo);
 					// boton.Top = 490 - 90 - (80 * botones.Count()) + Program.form1.panel1.AutoScrollPosition.Y;
 					boton.Top = 10 + (80 * botones.Count()) + Program.form1.panel1.AutoScrollPosition.Y;
 
@@ -70,6 +98,7 @@ namespace PilaDeLlamadas {
 				} else if (botones.Count - 1 > actual) {
 					Program.form1.panel1.Controls.RemoveAt(botones.Count() - 1);
 					botones.RemoveAt(botones.Count() - 1);
+					stack.RemoveAt(stack.Count() - 1);
 				}
 			});
 
