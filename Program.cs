@@ -11,12 +11,14 @@ namespace PilaDeLlamadas {
 		/// <summary>
 		/// Punto de entrada principal para la aplicación.
 		/// </summary>
-		[STAThread]
+		// [STAThread]
+		public static Form1 form1 = new Form1();
 
+		[STAThread]
 		static void Main() {
 			Application.EnableVisualStyles();
-			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new Form1());
+			//Application.SetCompatibleTextRenderingDefault(false);
+			Application.Run(form1);
 		}
 	}
 }

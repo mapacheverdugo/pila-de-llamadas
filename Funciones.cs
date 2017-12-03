@@ -7,12 +7,13 @@ using System.Threading.Tasks;
 namespace PilaDeLlamadas {
 	public partial class Funciones {
 
-		public static int CambioDeBase(int n, int b, int Max, int Total, int Actual, System.Windows.Forms.Panel p) {
-			Form1.Imprimir(Total, Max, Actual, "CambioDeBase(" + n + ", " + b + ")", p);
+		public static int CambioDeBase(int n, int b, int Max, int Total, int Actual) {
+			Form1.Imprimir(Total, Max, Actual, "CambioDeBase(" + n + ", " + b + ")");
 			if (n / 10 == 0) {
 				return n;
 			} else {
-				int aux = CambioDeBase(n / 10, b, Max, Total + 1, Actual + 1, p);
+				int aux = CambioDeBase(n / 10, b, Max, Total + 1, Actual + 1);
+				Form1.Imprimir(Total, Max, Actual, "CambioDeBase(" + n + ", " + b + ")");
 				return aux * b + n - n / 10 * 10;
 			}
 		}
@@ -27,22 +28,23 @@ namespace PilaDeLlamadas {
 				Imprimir(ref Max, Total, Actual);
 				return aux;
 			}
-		}
+		}*/
 
-		static int NodosBiarbol(int i, int j, ref int max, ref int total, int actual) {
+		public static int NodosBiarbol(int i, int j, int max, int total, int actual) {
 			total++;
-			Imprimir(ref max, total, actual);
+			Form1.Imprimir(total, max, actual, "NodosBiarbol(" + i + ", " + j + ")");
 			if (i == 0 || j == 0) {
 				return 1;
 			} else {
-				int aux1 = NodosBiarbol(i - 1, j, ref max, ref total, actual + 1);
-				Imprimir(ref max, total, actual);
+				int aux1 = NodosBiarbol(i - 1, j, max, total, actual + 1);
+				Form1.Imprimir(total, max, actual, "NodosBiarbol(" + i + ", " + j + ")");
 
-				int aux2 = NodosBiarbol(i, j - 1, ref max, ref total, actual + 1);
-				Imprimir(ref max, total, actual);
+				int aux2 = NodosBiarbol(i, j - 1, max, total, actual + 1);
+				Form1.Imprimir(total, max, actual, "NodosBiarbol(" + i + ", " + j + ")");
 				return aux1 + 1 + aux2;
 			}
 		}
+		/*
 
 		static int GruposDePersonas(int n, int k, ref int max, ref int total, int actual) {
 			total++;
