@@ -24,7 +24,9 @@ namespace PilaDeLlamadas {
 		private void Form1_Load(object sender, EventArgs e) {
 			consola = "Presiona [Enter] para empezar la ejecución...";
 			panel2.Refresh();
-			ThreadStart starter = () => {
+			ThreadStart funcion = () => {
+				semaforo.Reset();
+				semaforo.WaitOne();
 				int retorno = Funciones.NodosBiarbol(4, 4, 0, 1, 0);
 				consola = "La función terminó retornando " + retorno;
 				botones.Clear();
@@ -34,7 +36,7 @@ namespace PilaDeLlamadas {
 					Program.form1.panel2.Refresh();
 				});
 			};
-			hilo = new Thread(starter); 
+			hilo = new Thread(funcion); 
 			hilo.Start();
 		}
 
@@ -45,6 +47,7 @@ namespace PilaDeLlamadas {
 
 		public static void Imprimir(int total, int max, int actual, string frase) {
 			Button boton = new Button();
+			boton.Click += new EventHandler(cualquierBoton_Click);
 			boton.Left = 10;
 			boton.Width = 276;
 			boton.Height = 75;
@@ -53,7 +56,7 @@ namespace PilaDeLlamadas {
 			boton.BackColor = Color.FromArgb(140, 191, 204);
 			boton.FlatStyle = FlatStyle.Flat;
 			boton.FlatAppearance.BorderSize = 0;
-			boton.Text = frase;
+			boton.TabStop = false;
 
 			consola = "Se está ejecutando la función, presione [Enter]";
 
@@ -74,7 +77,6 @@ namespace PilaDeLlamadas {
 			});
 
 			semaforo.WaitOne();
-
 		}
 
 		private void panel2_Paint(object sender, PaintEventArgs e) {
@@ -84,7 +86,8 @@ namespace PilaDeLlamadas {
 		private void panel1_Paint(object sender, PaintEventArgs e) {
 			e.Graphics.DrawRectangle(
 				new Pen(
-					new SolidBrush(Color.White), 4), 2, 2, 292, 500);
+					new SolidBrush(Color.White), 4), 2, 2, 292, 9000);
+			e.Graphics.TranslateTransform(AutoScrollPosition.X, AutoScrollPosition.Y);
 		}
 
 		private void Form1_FormClosing(object sender, FormClosingEventArgs e) {
@@ -92,7 +95,13 @@ namespace PilaDeLlamadas {
 		}
 
 		private void panel1_Scroll(object sender, ScrollEventArgs e) {
-			this.Invalidate();
+			Program.form1.panel1.Invalidate();
+		}
+
+		public static void cualquierBoton_Click(object sender, EventArgs e) {
+			Button button = sender as Button;
+			MessageBox.Show(button.Text);
+			Program.form1.panel1.Focus();
 		}
 	}
 }
