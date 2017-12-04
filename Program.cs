@@ -12,7 +12,7 @@ namespace PilaDeLlamadas {
 		/// Punto de entrada principal para la aplicación.
 		/// </summary>
 		// [STAThread]
-		public static Form1 form1 = new Form1();
+		public static Main form1 = new Main();
 
 		[STAThread]
 		static void Main() {
