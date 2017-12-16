@@ -25,6 +25,8 @@
 		private void InitializeComponent() {
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Pila));
 			this.header = new System.Windows.Forms.Panel();
+			this.back = new System.Windows.Forms.PictureBox();
+			this.close = new System.Windows.Forms.PictureBox();
 			this.stackPanel = new System.Windows.Forms.Panel();
 			this.stackLabel = new System.Windows.Forms.Label();
 			this.continue0 = new System.Windows.Forms.Button();
@@ -42,13 +44,11 @@
 			this.label2 = new System.Windows.Forms.Label();
 			this.label1 = new System.Windows.Forms.Label();
 			this.label5 = new System.Windows.Forms.Label();
-			this.back = new System.Windows.Forms.PictureBox();
-			this.close = new System.Windows.Forms.PictureBox();
 			this.header.SuspendLayout();
-			this.consolePanel.SuspendLayout();
-			this.registroPanel.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.back)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.close)).BeginInit();
+			this.consolePanel.SuspendLayout();
+			this.registroPanel.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// header
@@ -61,6 +61,34 @@
 			this.header.Name = "header";
 			this.header.Size = new System.Drawing.Size(1024, 40);
 			this.header.TabIndex = 14;
+			this.header.MouseMove += new System.Windows.Forms.MouseEventHandler(this.header_MouseMove);
+			// 
+			// back
+			// 
+			this.back.Dock = System.Windows.Forms.DockStyle.Left;
+			this.back.Image = ((System.Drawing.Image)(resources.GetObject("back.Image")));
+			this.back.Location = new System.Drawing.Point(0, 0);
+			this.back.Name = "back";
+			this.back.Size = new System.Drawing.Size(60, 40);
+			this.back.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+			this.back.TabIndex = 6;
+			this.back.TabStop = false;
+			this.back.Click += new System.EventHandler(this.back_Click);
+			// 
+			// close
+			// 
+			this.close.Dock = System.Windows.Forms.DockStyle.Right;
+			this.close.Image = ((System.Drawing.Image)(resources.GetObject("close.Image")));
+			this.close.Location = new System.Drawing.Point(964, 0);
+			this.close.Name = "close";
+			this.close.Size = new System.Drawing.Size(60, 40);
+			this.close.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+			this.close.TabIndex = 5;
+			this.close.TabStop = false;
+			this.close.Click += new System.EventHandler(this.close_Click);
+			this.close.MouseLeave += new System.EventHandler(this.close_MouseLeave);
+			this.close.MouseHover += new System.EventHandler(this.close_MouseHover);
+			this.close.MouseMove += new System.Windows.Forms.MouseEventHandler(this.close_MouseMove);
 			// 
 			// stackPanel
 			// 
@@ -275,33 +303,6 @@
 			this.label5.TabIndex = 26;
 			this.label5.Text = "CAMBIO DE BASE";
 			// 
-			// back
-			// 
-			this.back.Dock = System.Windows.Forms.DockStyle.Left;
-			this.back.Image = ((System.Drawing.Image)(resources.GetObject("back.Image")));
-			this.back.Location = new System.Drawing.Point(0, 0);
-			this.back.Name = "back";
-			this.back.Size = new System.Drawing.Size(60, 40);
-			this.back.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-			this.back.TabIndex = 6;
-			this.back.TabStop = false;
-			this.back.Click += new System.EventHandler(this.back_Click);
-			// 
-			// close
-			// 
-			this.close.Dock = System.Windows.Forms.DockStyle.Right;
-			this.close.Image = ((System.Drawing.Image)(resources.GetObject("close.Image")));
-			this.close.Location = new System.Drawing.Point(964, 0);
-			this.close.Name = "close";
-			this.close.Size = new System.Drawing.Size(60, 40);
-			this.close.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-			this.close.TabIndex = 5;
-			this.close.TabStop = false;
-			this.close.Click += new System.EventHandler(this.close_Click);
-			this.close.MouseLeave += new System.EventHandler(this.close_MouseLeave);
-			this.close.MouseHover += new System.EventHandler(this.close_MouseHover);
-			this.close.MouseMove += new System.Windows.Forms.MouseEventHandler(this.close_MouseMove);
-			// 
 			// Pila
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -327,12 +328,12 @@
 			this.Load += new System.EventHandler(this.Pila_Load);
 			this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Pila_KeyPress);
 			this.header.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.back)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.close)).EndInit();
 			this.consolePanel.ResumeLayout(false);
 			this.consolePanel.PerformLayout();
 			this.registroPanel.ResumeLayout(false);
 			this.registroPanel.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.back)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.close)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

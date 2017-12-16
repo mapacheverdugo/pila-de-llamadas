@@ -124,20 +124,14 @@ namespace PilaDeLlamadas {
 		private void run_Click(object sender, EventArgs e) {
 			parameter2.Show();
 			textBox2.Show();
+			p1 = Int32.Parse(textBox1.Text);
+			p2 = Int32.Parse(textBox2.Text);
 			panel1.Show();
 			functionsPanel.Show();
 			inputPanel.Hide();
 			Hide(); // Ocultar el menú principal
 			ventana = new Pila(this, funcion, p1, p2); // Declaro la nueva ventana
 			ventana.ShowDialog(); // Abro esa ventana
-		}
-
-		private void textBox1_TextChanged(object sender, EventArgs e) {
-			p1 = Int32.Parse(textBox1.Text);
-		}
-
-		private void textBox2_TextChanged(object sender, EventArgs e) {
-			p2 = Int32.Parse(textBox2.Text);
 		}
 
 		private void close_MouseHover(object sender, EventArgs e) {

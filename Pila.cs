@@ -24,6 +24,16 @@ namespace PilaDeLlamadas {
 		private static int A = 0;
 		private static int B = 0;
 
+		// Código necesario para poder hacer drag a la aplicación
+		public const int WM_NCLBUTTONDOWN = 0xA1;
+		public const int HT_CAPTION = 0x2;
+
+		[System.Runtime.InteropServices.DllImportAttribute("user32.dll")]
+		public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+		[System.Runtime.InteropServices.DllImportAttribute("user32.dll")]
+		public static extern bool ReleaseCapture();
+		// --------------------------------------------------------
+
 		public Pila(Main p, int f, int a) {
 			InitializeComponent();
 			principal = p;
@@ -171,6 +181,13 @@ namespace PilaDeLlamadas {
 
 		private void close_Click(object sender, EventArgs e) {
 			Application.Exit(); // Cierro la aplicación
+		}
+
+		private void header_MouseMove(object sender, MouseEventArgs e) {
+			if (e.Button == MouseButtons.Left) {
+				ReleaseCapture();
+				SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+			}
 		}
 	}
 }

@@ -31,6 +31,7 @@
 			this.components = new System.ComponentModel.Container();
 			this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.header = new System.Windows.Forms.Panel();
+			this.close = new System.Windows.Forms.PictureBox();
 			this.title = new System.Windows.Forms.Label();
 			this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
 			this.cambio = new System.Windows.Forms.Button();
@@ -50,17 +51,17 @@
 			this.functionDescription = new System.Windows.Forms.TextBox();
 			this.functionLabel = new System.Windows.Forms.Label();
 			this.panel3 = new System.Windows.Forms.Panel();
+			this.label5 = new System.Windows.Forms.Label();
+			this.label4 = new System.Windows.Forms.Label();
+			this.label3 = new System.Windows.Forms.Label();
+			this.label2 = new System.Windows.Forms.Label();
+			this.label1 = new System.Windows.Forms.Label();
 			this.pictureBox4 = new System.Windows.Forms.PictureBox();
 			this.pictureBox3 = new System.Windows.Forms.PictureBox();
 			this.pictureBox2 = new System.Windows.Forms.PictureBox();
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
-			this.close = new System.Windows.Forms.PictureBox();
-			this.label1 = new System.Windows.Forms.Label();
-			this.label2 = new System.Windows.Forms.Label();
-			this.label3 = new System.Windows.Forms.Label();
-			this.label4 = new System.Windows.Forms.Label();
-			this.label5 = new System.Windows.Forms.Label();
 			this.header.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.close)).BeginInit();
 			this.functionsPanel.SuspendLayout();
 			this.inputPanel.SuspendLayout();
 			this.panel2.SuspendLayout();
@@ -70,7 +71,6 @@
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.close)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// contextMenuStrip1
@@ -89,6 +89,21 @@
 			this.header.Size = new System.Drawing.Size(1024, 40);
 			this.header.TabIndex = 13;
 			this.header.MouseMove += new System.Windows.Forms.MouseEventHandler(this.header_MouseMove);
+			// 
+			// close
+			// 
+			this.close.Dock = System.Windows.Forms.DockStyle.Right;
+			this.close.Image = global::PilaDeLlamadas.Properties.Resources.letter_x;
+			this.close.Location = new System.Drawing.Point(964, 0);
+			this.close.Name = "close";
+			this.close.Size = new System.Drawing.Size(60, 40);
+			this.close.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+			this.close.TabIndex = 6;
+			this.close.TabStop = false;
+			this.close.Click += new System.EventHandler(this.close_Click);
+			this.close.MouseLeave += new System.EventHandler(this.close_MouseLeave);
+			this.close.MouseHover += new System.EventHandler(this.close_MouseHover);
+			this.close.MouseMove += new System.Windows.Forms.MouseEventHandler(this.close_MouseMove);
 			// 
 			// title
 			// 
@@ -255,7 +270,6 @@
 			this.textBox1.Name = "textBox1";
 			this.textBox1.Size = new System.Drawing.Size(401, 28);
 			this.textBox1.TabIndex = 1;
-			this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
 			// 
 			// panel1
 			// 
@@ -276,7 +290,6 @@
 			this.textBox2.Name = "textBox2";
 			this.textBox2.Size = new System.Drawing.Size(401, 28);
 			this.textBox2.TabIndex = 1;
-			this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
 			// 
 			// run
 			// 
@@ -336,6 +349,64 @@
 			this.panel3.Size = new System.Drawing.Size(429, 381);
 			this.panel3.TabIndex = 32;
 			// 
+			// label5
+			// 
+			this.label5.AutoSize = true;
+			this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label5.ForeColor = System.Drawing.Color.White;
+			this.label5.Location = new System.Drawing.Point(-1, 117);
+			this.label5.Margin = new System.Windows.Forms.Padding(20, 0, 3, 10);
+			this.label5.Name = "label5";
+			this.label5.Size = new System.Drawing.Size(114, 24);
+			this.label5.TabIndex = 27;
+			this.label5.Text = "AUTORES:";
+			// 
+			// label4
+			// 
+			this.label4.AutoSize = true;
+			this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(233)))), ((int)(((byte)(240)))));
+			this.label4.Location = new System.Drawing.Point(83, 213);
+			this.label4.Name = "label4";
+			this.label4.Size = new System.Drawing.Size(104, 20);
+			this.label4.TabIndex = 29;
+			this.label4.Text = "19.841.526-K";
+			// 
+			// label3
+			// 
+			this.label3.AutoSize = true;
+			this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(233)))), ((int)(((byte)(240)))));
+			this.label3.Location = new System.Drawing.Point(83, 303);
+			this.label3.Name = "label3";
+			this.label3.Size = new System.Drawing.Size(104, 20);
+			this.label3.TabIndex = 27;
+			this.label3.Text = "19.649.846-K";
+			// 
+			// label2
+			// 
+			this.label2.AutoSize = true;
+			this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label2.ForeColor = System.Drawing.Color.White;
+			this.label2.Location = new System.Drawing.Point(83, 273);
+			this.label2.Margin = new System.Windows.Forms.Padding(20, 0, 3, 10);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(165, 20);
+			this.label2.TabIndex = 28;
+			this.label2.Text = "JORGE VERDUGO";
+			// 
+			// label1
+			// 
+			this.label1.AutoSize = true;
+			this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label1.ForeColor = System.Drawing.Color.White;
+			this.label1.Location = new System.Drawing.Point(83, 184);
+			this.label1.Margin = new System.Windows.Forms.Padding(20, 0, 3, 10);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(178, 20);
+			this.label1.TabIndex = 27;
+			this.label1.Text = "JAVIERA VERGARA";
+			// 
 			// pictureBox4
 			// 
 			this.pictureBox4.Image = global::PilaDeLlamadas.Properties.Resources.Foto2;
@@ -379,79 +450,6 @@
 			this.pictureBox1.TabStop = false;
 			this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
 			// 
-			// close
-			// 
-			this.close.Dock = System.Windows.Forms.DockStyle.Right;
-			this.close.Image = global::PilaDeLlamadas.Properties.Resources.letter_x;
-			this.close.Location = new System.Drawing.Point(964, 0);
-			this.close.Name = "close";
-			this.close.Size = new System.Drawing.Size(60, 40);
-			this.close.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-			this.close.TabIndex = 6;
-			this.close.TabStop = false;
-			this.close.Click += new System.EventHandler(this.close_Click);
-			this.close.MouseLeave += new System.EventHandler(this.close_MouseLeave);
-			this.close.MouseHover += new System.EventHandler(this.close_MouseHover);
-			this.close.MouseMove += new System.Windows.Forms.MouseEventHandler(this.close_MouseMove);
-			// 
-			// label1
-			// 
-			this.label1.AutoSize = true;
-			this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label1.ForeColor = System.Drawing.Color.White;
-			this.label1.Location = new System.Drawing.Point(83, 184);
-			this.label1.Margin = new System.Windows.Forms.Padding(20, 0, 3, 10);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(178, 20);
-			this.label1.TabIndex = 27;
-			this.label1.Text = "JAVIERA VERGARA";
-			// 
-			// label2
-			// 
-			this.label2.AutoSize = true;
-			this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label2.ForeColor = System.Drawing.Color.White;
-			this.label2.Location = new System.Drawing.Point(83, 273);
-			this.label2.Margin = new System.Windows.Forms.Padding(20, 0, 3, 10);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(178, 20);
-			this.label2.TabIndex = 28;
-			this.label2.Text = "JAVIERA VERGARA";
-			// 
-			// label3
-			// 
-			this.label3.AutoSize = true;
-			this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(233)))), ((int)(((byte)(240)))));
-			this.label3.Location = new System.Drawing.Point(83, 303);
-			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(104, 20);
-			this.label3.TabIndex = 27;
-			this.label3.Text = "19.649.846-K";
-			// 
-			// label4
-			// 
-			this.label4.AutoSize = true;
-			this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(233)))), ((int)(((byte)(240)))));
-			this.label4.Location = new System.Drawing.Point(83, 213);
-			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(104, 20);
-			this.label4.TabIndex = 29;
-			this.label4.Text = "19.841.526-K";
-			// 
-			// label5
-			// 
-			this.label5.AutoSize = true;
-			this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label5.ForeColor = System.Drawing.Color.White;
-			this.label5.Location = new System.Drawing.Point(-1, 117);
-			this.label5.Margin = new System.Windows.Forms.Padding(20, 0, 3, 10);
-			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(114, 24);
-			this.label5.TabIndex = 27;
-			this.label5.Text = "AUTORES:";
-			// 
 			// Main
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -471,6 +469,7 @@
 			this.Load += new System.EventHandler(this.Main_Load);
 			this.header.ResumeLayout(false);
 			this.header.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.close)).EndInit();
 			this.functionsPanel.ResumeLayout(false);
 			this.inputPanel.ResumeLayout(false);
 			this.inputPanel.PerformLayout();
@@ -484,7 +483,6 @@
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.close)).EndInit();
 			this.ResumeLayout(false);
 
         }
